@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animierter Hintergrund mit drehenden Sonnenblumen */
+.flowers-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(ellipse at 20% 50%, rgba(255, 200, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 150, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 20%, rgba(255, 180, 0, 0.1) 0%, transparent 50%);
+}
+
+.flower {
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.3;
+    animation: rotate 8s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 200, 0, 0.3));
+}
+
+.flower1 {
+    top: 5%;
+    left: 10%;
+    font-size: 6rem;
+    animation: rotate 10s linear infinite;
+    animation-delay: 0s;
+}
+
+.flower1::before {
+    content: "🌻";
+}
+
+.flower2 {
+    top: 15%;
+    right: 15%;
+    font-size: 7rem;
+    animation: rotate 12s linear infinite;
+    animation-delay: -2s;
+    opacity: 0.25;
+}
+
+.flower2::before {
+    content: "🌻";
+}
+
+.flower3 {
+    bottom: 10%;
+    left: 20%;
+    font-size: 8rem;
+    animation: rotate 9s linear infinite;
+    animation-delay: -3s;
+    opacity: 0.2;
+}
+
+.flower3::before {
+    content: "🌻";
+}
+
+.flower4 {
+    bottom: 20%;
+    right: 10%;
+    font-size: 7rem;
+    animation: rotate 11s linear infinite;
+    animation-delay: -1s;
+    opacity: 0.25;
+}
+
+.flower4::before {
+    content: "🌻";
+}
+
+.flower5 {
+    top: 50%;
+    left: 5%;
+    font-size: 6rem;
+    animation: rotate 13s linear infinite;
+    animation-delay: -4s;
+    opacity: 0.2;
+}
+
+.flower5::before {
+    content: "🌻";
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Container - zentriert */
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+.content {
+    animation: fadeIn 0.5s ease-in;
+}
+
+#question-container h1 {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 3rem;
+    animation: bounce 1.5s ease-in-out infinite;
+    font-weight: bold;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-yes:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-yes:active {
+    transform: scale(0.95);
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    position: relative;
+}
+
+.btn-no:hover {
+    transform: scale(1.05);
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-top: 2rem;
+}
+
+.btn-reset:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Sonnenblume */
+.sunflower-hidden {
+    display: none;
+    animation: fadeIn 0.8s ease;
+}
+
+.sunflower-visible {
+    display: block;
+}
+
+.sunflower {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 2rem;
+    position: relative;
+    animation: rotateIn 0.8s ease;
+}
+
+@keyframes rotateIn {
+    from {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.petals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.petal {
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    border-radius: 50% 50% 50% 0;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -25px;
+    transform-origin: 25px 100px;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(45deg); }
+.petal:nth-child(3) { transform: rotate(90deg); }
+.petal:nth-child(4) { transform: rotate(135deg); }
+.petal:nth-child(5) { transform: rotate(180deg); }
+.petal:nth-child(6) { transform: rotate(225deg); }
+.petal:nth-child(7) { transform: rotate(270deg); }
+.petal:nth-child(8) { transform: rotate(315deg); }
+
+.center {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #8B6914, #654321);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -40px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#sunflower-container h2 {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #question-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+    }
+
+    .button-container {
+        gap: 1rem;
+    }
+
+    .sunflower {
+        width: 200px;
+        height: 200px;
+    }
+
+    #sunflower-container h2 {
+        font-size: 1.8rem;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+
+    .flower {
+        font-size: 4rem;
+    }
+
+    .flower1 {
+        font-size: 3rem;
+    }
+
+    .flower2, .flower4 {
+        font-size: 3.5rem;
+    }
+}
